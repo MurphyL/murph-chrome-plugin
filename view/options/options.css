@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 35px);
+}
+main {
+    padding: 14px 5px;
+    border-top: 1px dotted #cfcfcf;
+    border-bottom: 1px dotted #cfcfcf;
+    height: 90%;
+}
+main section {
+    display: flex;
+    margin-bottom: 5px;
+}
+main section label {
+    width: 100px;
+    text-align: right;
+    line-height: 25px;
+}
+main section label::after {
+    content: "：";
+}
+main section .field {
+    flex: 1;
+}
+main section .field input {
+    width: 90%;
+}
+main section .field input[type="file"] {
+    outline: none;
+}
+.config-file-toggle[data-type="1"] {
+    display: initial;
+}
+.config-file-toggle[data-type="-1"] {
+    display: none;
+}
+footer {
+    display: flex;
+    padding: 0 10px;
+    height: 10%;
+    align-items: center;
+}
+footer .status {
+    padding-left: 5px;
+    flex: 1;
+}
+footer .operations {
+    width: 180px;
+    text-align: right;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>插件配置选项</title>
+        <link rel="stylesheet" href="./options.css">
+        
+    </head>
+    <body>
+        <main>
+            <section>
+                <label for="ip">开发环境IP</label>
+                <div class="field">
+                    <input type="text" id="ip" placeholder="设置开发环境IP" />
+                </div>
+            </section>
+            <section id="config-file">
+                <label for="source">配置文件</label>
+                <div class="field">
+                    <input type="file" id="source" placeholder="配置文件" />
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="status"></div>
+            <div class="operations">
+                <button id="save-config">保存</button>
+            </div>
+        </footer>
+    </body>
+    <script src="../../core/zepto.min.js"></script>
+    <script src="./options.js"></script>
+</html>
