@@ -29,10 +29,6 @@
 		"default_title": "助力开发效率的提升~",
 		"default_popup": "view/popup/popup.html"
 	},
-	"options_ui": {
-		"page": "view/options/options.html",
-		"chrome_style": true
-	},
 	"content_scripts": [
 		{
 			"matches": [

@@ -3,10 +3,19 @@
  */
 const suggestConfig = {};
 
+/**
+ * 读取配置文件
+ */
 if(typeof(chrome.storage.local.get) === 'function') {
 	chrome.storage.local.get([ 'savedConfig' ], ({ savedConfig }) => {
+		if(!savedConfig) {
+			return;
+		}
 		console.log('配置文件', JSON.parse(savedConfig));
-		JSON.parse(savedConfig).forEach(({ title, env }) => {
+		const { items, local } = JSON.parse(savedConfig);
+		Object.assign(suggestConfig, { local });
+		// 构造推荐数据
+		(items || []).forEach(({ title, env }) => {
 			for(let key in env) {
 				if(!suggestConfig[key]) { 
 					suggestConfig[key] = [];
@@ -33,27 +42,13 @@ if(typeof(chrome.storage.local.get) === 'function') {
 chrome.omnibox.setDefaultSuggestion({
 	description: '选择一个环境自动跳转'
 });
- /***/
 
 /**
  * 推荐
  */
 chrome.omnibox.onInputChanged.addListener((text, suggest) => {
-	let suggestItems = suggestConfig[text.toLowerCase()];
-	if(!suggestItems) {
-		suggestItems = [{
-			description: 'Jira - 填写工时',
-			content: JSON.stringify({
-				url: 'http://jira.izhaogang.com/secure/deskAction!mainpage.jspa?tabId=7'
-			})
-		}, {
-			description: 'Jira - 个人工作台',
-			content: JSON.stringify({
-				url: 'http://jira.izhaogang.com/secure/deskAction!mainpage.jspa'
-			})
-		}];
-	}
-	suggest(suggestItems);
+	const suggestItems = suggestConfig[text.toLowerCase()];
+	suggest(suggestItems ? suggestItems : suggestConfig.local);
 });
 
 /**

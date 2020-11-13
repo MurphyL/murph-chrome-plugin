@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>插件配置选项</title>
-        <link rel="stylesheet" href="./options.css">
-        
-    </head>
-    <body>
-        <main>
-            <section>
-                <label for="ip">开发环境IP</label>
-                <div class="field">
-                    <input type="text" id="ip" placeholder="设置开发环境IP" />
-                </div>
-            </section>
-            <section id="config-file">
-                <label for="source">配置文件</label>
-                <div class="field">
-                    <input type="file" id="source" placeholder="配置文件" />
-                </div>
-            </section>
-        </main>
-        <footer>
-            <div class="status"></div>
-            <div class="operations">
-                <button id="save-config">保存</button>
-            </div>
-        </footer>
-    </body>
-    <script src="../../core/zepto.min.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大猫开发助手</title>
+    <link rel="stylesheet" href="../../libs/codemirror-5.58.2/codemirror.css">
+    <link rel="stylesheet" href="../../libs/codemirror-5.58.2/theme/idea.css">
+    <style>
+        html, body, main {
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 100%;
+        }
+        .CodeMirror {
+            overflow-y: scroll;
+            height: 100%;
+            font-size: 14px;
+            font-family: "Source Code Pro, DejaVu Sans Mono, Consolas, Droid Sans Mono";
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <textarea id="config"></textarea>
+    </main>
+    <script src="../../libs/zepto.min.js"></script>
+    <script src="../../libs/codemirror-5.58.2/codemirror.js"></script>
+    <script src="../../libs/codemirror-5.58.2/mode/javascript/javascript.js"></script>
     <script src="./options.js"></script>
+</body>
 </html>
