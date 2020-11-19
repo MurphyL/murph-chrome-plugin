@@ -4,15 +4,15 @@
 	"version": "0.1.0",
 	"description": "助力开发效率的提升~",
 	"homepage_url": "https://www.zhaogang.com/",
-	"options_page": "view/options/options.html",
+	"options_page": "options/options.html",
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 	"omnibox": {
 		"keyword": "zg"
 	},
 	"icons": {
-		"16": "img/icon.png",
-		"48": "img/icon.png",
-		"128": "img/icon.png"
+		"16": "extra/img/icon.png",
+		"48": "extra/img/icon.png",
+		"128": "extra/img/icon.png"
 	},
 	"permissions": [
 		"tabs",
@@ -21,13 +21,13 @@
 	],
 	"background": {
 		"scripts": [
-			"core/background.js"
+			"extra/background.js"
 		]
 	},
 	"browser_action": {
-		"default_icon": "img/icon.png",
+		"default_icon": "extra/img/icon.png",
 		"default_title": "助力开发效率的提升~",
-		"default_popup": "view/popup/popup.html"
+		"default_popup": "popup/popup.html"
 	},
 	"content_scripts": [
 		{
@@ -38,10 +38,10 @@
 				"http://*.zhaogangren.com:*/*"
 			],
 			"js": [
-				"core/content-script.js"
+				"extra/content-script.js"
 			],
 			"css": [
-				"core/custom.css"
+				"extra/custom.css"
 			],
 			"run_at": "document_end"
 		}
